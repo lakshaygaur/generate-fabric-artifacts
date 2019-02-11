@@ -4,3 +4,4 @@ crypto-config.yaml
 crypto-config
 configtx.yaml
 docker-compose.yaml
+node_files/*

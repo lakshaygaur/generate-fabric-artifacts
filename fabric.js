@@ -90,7 +90,7 @@ function generateArtifacts(){
         console.log(stdout,stderr)
     })
     for(let key in config.orgs){
-        cmd.exec(path.join(__dirname,dir,'configtxgen') +' -profile TwoOrgsChannel -outputAnchorPeersUpdate '+path.join(__dirname,out_dir,'channel-artifacts/'+key+'MSPanchors.tx')+' -channelID '+channelname+' -asOrg '+key+'MSP',(err,stdout,stderr)=>{
+        cmd.exec(path.join(__dirname,out_dir,'configtxgen') +' -profile TwoOrgsChannel -outputAnchorPeersUpdate '+path.join(__dirname,out_dir,'channel-artifacts/'+key+'MSPanchors.tx')+' -channelID '+channelname+' -asOrg '+key+'MSP',(err,stdout,stderr)=>{
             if(err) console.log(err)
             console.log(stdout,stderr)
         })
@@ -178,6 +178,10 @@ function createDockerFiles(){
     delete data.volumes['peer0.template.example.com']
     delete data.services['peer0.template.example.com']
     fs.writeFileSync(path.join(__dirname, out_dir, 'docker-compose.yaml'),yaml.safeDump(data,{lineWidth:200}))
+}
+
+function nodeFiles(){
+
 }
 
 
