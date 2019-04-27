@@ -5,3 +5,5 @@ crypto-config
 configtx.yaml
 docker-compose.yaml
 node_files/*
+node_modules
+network_files
